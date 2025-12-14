@@ -1,9 +1,32 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.15);
+  --white: #fff;
+  --light: #f5f5f5;
+  --disabled: #cccccc;
+  --black: #000;
+  --primary: #ef7b6f;
+  --primary-hover: #af554b;
+  --light-grey: #666666;
+  --dark-grey: #333333;
+  --info: #3498db;
+}
+
 body {
   margin: 0;
   font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #f4f4f4;
+  background: vaR(--light);
+}
+
+main {
+  min-height: 40vh;
 }
 
 code {
@@ -11,42 +34,23 @@ code {
     monospace;
 }
 
-.App {
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: space-between;
-  margin: 20px 0;
+.loader {
+  --mask: conic-gradient(#0000 10%, var(--black)),
+    linear-gradient(var(--black) 0 0) content-box;
+  display: inline-block;
+  width: 1rem;
+  padding: 0.2rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--primary);
+  -webkit-mask: var(--mask);
+  mask: var(--mask);
+  -webkit-mask-composite: source-out;
+  mask-composite: subtract;
+  animation: rotate 1s infinite linear;
 }
-
-.selected {
-  color: #333333;
-  font-size: 26px;
-  font-weight: 700;
-  margin: 10px 20px 0 0;
-}
-
-.person-info:hover {
-  padding: 30px;
-  border: 2px solid pink;
-}
-
-.firstNameLastName {
-  padding: 0 0 10px;
-  color: #333333;
-  font-size: 26px;
-  font-weight: 700;
-}
-
-.jobTitle {
-  padding: 0 0 20px;
-  color: #e74c3c;
-  font-size: 20px;
-  font-weight: 400;
-}
-
-.emailAddress {
-  color: #666666;
-  font-size: 14px;
-  line-height: 1.8em;
+@keyframes rotate {
+  to {
+    transform: rotate(1turn);
+  }
 }

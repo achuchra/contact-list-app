@@ -1,0 +1,15 @@
+.scrollTopButton {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+
+  &[data-visible="false"] {
+    transition: scale 0.3s ease;
+    scale: 0;
+  }
+
+  &[data-visible="true"] {
+    transition: scale 0.3s ease;
+    scale: 1;
+  }
+}

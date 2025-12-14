@@ -1,24 +1,14 @@
-import React from "react";
-import apiData from "./api";
-import PersonInfo from "./PersonInfo";
+import { Footer, Header, PersonInfoList } from "src/components";
+import { PersonsProvider } from "src/contexts";
 
-function App() {
-  const [data, setData] = React.useState([]);
-  const [selected, setSelected] = React.useState([]);
-
-  //  TODO fetch contacts using apiData function, handle loading and error states
-
+export const App = () => {
   return (
-    <div className="App">
-      <div className="selected">Selected contacts: {selected.length}</div>
-      <div className="list">
-        {data.map((personInfo) => (
-          // @ts-ignore
-          <PersonInfo key={personInfo.id} data={personInfo} />
-        ))}
-      </div>
-    </div>
+    <PersonsProvider>
+      <Header />
+      <main>
+        <PersonInfoList />
+      </main>
+      <Footer />
+    </PersonsProvider>
   );
-}
-
-export default App;
+};

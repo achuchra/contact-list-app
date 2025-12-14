@@ -1,0 +1,32 @@
+.button:not([data-semantic-only="true"]) {
+  background: var(--primary);
+  transition: background 0.3s ease;
+  border: 0;
+  padding: 0.7rem;
+  cursor: pointer;
+
+  &:hover {
+    transition: background 0.3s ease;
+    background: var(--primary-hover);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    background: var(--disabled);
+  }
+}
+
+.button[data-semantic-only="true"] {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  outline: none;
+  display: block;
+  width: 100%;
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--primary-hover);
+  outline-offset: 2px;
+}
